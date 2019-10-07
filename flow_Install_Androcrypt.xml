@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<data version="1.37.0">
+  <condition type="debug_dialog">
+    <useDefaultName>true</useDefaultName>
+    <name>Debug Dialog</name>
+  </condition>
+  <action type="delete_files">
+    <useDefaultName>true</useDefaultName>
+    <name>Delete Files: /storage/emulated/0/Download/androcrypt_linux_arm.tar.gz</name>
+    <pathList>/storage/emulated/0/Download/androcrypt_linux_arm.tar.gz</pathList>
+    <showProgress>true</showProgress>
+  </action>
+  <action type="download_url">
+    <useDefaultName>true</useDefaultName>
+    <name>Download URL: https://github.com/Luzifer/androcrypt/releases/download/{value}/androcrypt_linux_arm.tar.gz to /storage/emulated/0/Download</name>
+    <url>https://github.com/Luzifer/androcrypt/releases/download/{value}/androcrypt_linux_arm.tar.gz</url>
+    <directory>/storage/emulated/0/Download</directory>
+    <showProgress>true</showProgress>
+  </action>
+  <action type="execute_command">
+    <useDefaultName>true</useDefaultName>
+    <name>Execute Command: ./androcrypt --version in /data/data/ch.gridvision.ppam.androidautomagic/files/</name>
+    <command>./androcrypt --version</command>
+    <workingDirectory>/data/data/ch.gridvision.ppam.androidautomagic/files/</workingDirectory>
+    <timeout>300000</timeout>
+    <variableStdout>stdout</variableStdout>
+    <variableStderr>stderr</variableStderr>
+    <variableExitCode>exit_code</variableExitCode>
+  </action>
+  <action type="execute_command">
+    <useDefaultName>true</useDefaultName>
+    <name>Execute Command: mv androcrypt_linux_arm androcrypt &amp;&amp; chmod 0750 androcrypt in /data/data/ch.gridvision.ppam.androidautomagic/files/</name>
+    <command>mv androcrypt_linux_arm androcrypt &amp;&amp; chmod 0750 androcrypt</command>
+    <workingDirectory>/data/data/ch.gridvision.ppam.androidautomagic/files/</workingDirectory>
+    <timeout>300000</timeout>
+    <variableStdout>stdout</variableStdout>
+    <variableStderr>stderr</variableStderr>
+    <variableExitCode>exit_code</variableExitCode>
+  </action>
+  <action type="execute_command">
+    <useDefaultName>true</useDefaultName>
+    <name>Execute Command: tar -xzf /storage/emulated/0/Download/androcrypt_linux_arm.tar.gz in /data/data/ch.gridvision.ppam.androidautomagic/files</name>
+    <command>tar -xzf /storage/emulated/0/Download/androcrypt_linux_arm.tar.gz</command>
+    <workingDirectory>/data/data/ch.gridvision.ppam.androidautomagic/files</workingDirectory>
+    <timeout>300000</timeout>
+    <variableStdout>stdout</variableStdout>
+    <variableStderr>stderr</variableStderr>
+    <variableExitCode>exit_code</variableExitCode>
+  </action>
+  <action type="input_dialog">
+    <useDefaultName>true</useDefaultName>
+    <name>Input Dialog: Androcrypt version to fetch Multi-line text Version</name>
+    <title>Androcrypt version to fetch</title>
+    <inputDialogType>TEXT</inputDialogType>
+    <prompt>Version</prompt>
+    <inputValues></inputValues>
+    <defaultValue>v0.1.0</defaultValue>
+    <titleFontSize>DEFAULT</titleFontSize>
+    <promptFontSize>DEFAULT</promptFontSize>
+    <fontSize>DEFAULT</fontSize>
+    <timeoutEnabled>false</timeoutEnabled>
+    <timeout>60000</timeout>
+    <defaultValueOnTimeout></defaultValueOnTimeout>
+    <showWhenLocked>false</showWhenLocked>
+    <turnScreenOn>false</turnScreenOn>
+    <keepScreenOn>false</keepScreenOn>
+    <enlargeDialogWidth>false</enlargeDialogWidth>
+    <keyboardCapitalizeSentences>false</keyboardCapitalizeSentences>
+  </action>
+  <flow type="flow">
+    <name>Install Androcrypt</name>
+    <enabled>false</enabled>
+    <executionPolicy>PARALLEL</executionPolicy>
+    <triggercontainer id="t1" x="174.99998" y="-332.5" />
+    <actioncontainer id="t2" x="175.0" y="-192.50002">Input Dialog: Androcrypt version to fetch Multi-line text Version</actioncontainer>
+    <actioncontainer id="t3" x="174.99994" y="-52.5">Download URL: https://github.com/Luzifer/androcrypt/releases/download/{value}/androcrypt_linux_arm.tar.gz to /storage/emulated/0/Download</actioncontainer>
+    <actioncontainer id="t4" x="175.0" y="87.50001">Execute Command: tar -xzf /storage/emulated/0/Download/androcrypt_linux_arm.tar.gz in /data/data/ch.gridvision.ppam.androidautomagic/files</actioncontainer>
+    <actioncontainer id="t5" x="70.0" y="262.49997">Delete Files: /storage/emulated/0/Download/androcrypt_linux_arm.tar.gz</actioncontainer>
+    <actioncontainer id="t6" x="279.99997" y="262.4999">Execute Command: mv androcrypt_linux_arm androcrypt &amp;&amp; chmod 0750 androcrypt in /data/data/ch.gridvision.ppam.androidautomagic/files/</actioncontainer>
+    <conditioncontainer id="t7" x="279.9999" y="542.49976">Debug Dialog</conditioncontainer>
+    <actioncontainer id="t8" x="280.0" y="402.5">Execute Command: ./androcrypt --version in /data/data/ch.gridvision.ppam.androidautomagic/files/</actioncontainer>
+    <connection from="t1" to="t2" type="NORMAL" sourcePosition="SOUTH" targetPosition="NORTH" />
+    <connection from="t2" to="t3" type="NORMAL" sourcePosition="SOUTH" targetPosition="NORTH" />
+    <connection from="t3" to="t4" type="NORMAL" sourcePosition="SOUTH" targetPosition="NORTH" />
+    <connection from="t4" to="t6" type="NORMAL" sourcePosition="SOUTH" targetPosition="NORTH" />
+    <connection from="t4" to="t5" type="NORMAL" sourcePosition="SOUTH" targetPosition="NORTH" />
+    <connection from="t6" to="t8" type="NORMAL" sourcePosition="SOUTH" targetPosition="NORTH" />
+    <connection from="t8" to="t7" type="NORMAL" sourcePosition="SOUTH" targetPosition="NORTH" />
+  </flow>
+</data>
