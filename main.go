@@ -35,7 +35,7 @@ func init() {
 	}
 
 	if cfg.VersionAndExit {
-		fmt.Printf("git-changerelease %s\n", version)
+		fmt.Printf("androcrypt %s\n", version)
 		os.Exit(0)
 	}
 
