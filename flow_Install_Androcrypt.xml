@@ -54,7 +54,7 @@
     <inputDialogType>TEXT</inputDialogType>
     <prompt>Version</prompt>
     <inputValues></inputValues>
-    <defaultValue>v0.1.0</defaultValue>
+    <defaultValue>v0.1.1</defaultValue>
     <titleFontSize>DEFAULT</titleFontSize>
     <promptFontSize>DEFAULT</promptFontSize>
     <fontSize>DEFAULT</fontSize>
